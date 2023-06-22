@@ -1,55 +1,15 @@
 import Hero from "@/components/Hero";
 import FeaturedPosts from "@/components/FeaturedPosts";
-import { Post } from "@/data/Post";
+import { getFeaturedPosts } from "@/lib/posts-util";
 
-export const DUMMY_POSTS: Post[] = [
-  {
-    slug: "next-intro-1",
-    title: "Introduction to Next 1",
-    image: "next-intro.jpg",
-    date: "2023-06-22",
-    excerpt:
-      "NextJS is the React framework for production. It makes building sites super easy and scale worldwide",
-  },
-  {
-    slug: "next-intro-2",
-    title: "Introduction to Next 2",
-    image: "next-intro.jpg",
-    date: "2023-06-22",
-    excerpt:
-      "NextJS is the React framework for production. It makes building sites super easy and scale worldwide",
-  },
-  {
-    slug: "next-intro-3",
-    title: "Introduction to Next 3",
-    image: "next-intro.jpg",
-    date: "2023-06-22",
-    excerpt:
-      "NextJS is the React framework for production. It makes building sites super easy and scale worldwide",
-  },
-  {
-    slug: "next-intro-4",
-    title: "Introduction to Next 4",
-    image: "next-intro.jpg",
-    date: "2023-06-22",
-    excerpt:
-      "NextJS is the React framework for production. It makes building sites super easy and scale worldwide",
-  },
-  {
-    slug: "next-intro-5",
-    title: "Introduction to Next 5",
-    image: "next-intro.jpg",
-    date: "2023-06-22",
-    excerpt:
-      "NextJS is the React framework for production. It makes building sites super easy and scale worldwide",
-  },
-];
+// export const revalidate = 60 * 60; // in seconds, 1 hour
 
 export default function Home() {
+  const posts = getFeaturedPosts();
   return (
     <>
       <Hero />
-      <FeaturedPosts posts={DUMMY_POSTS} />
+      <FeaturedPosts posts={posts} />
     </>
   );
 }

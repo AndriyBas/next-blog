@@ -1,8 +1,9 @@
 import AllPosts from "@/components/AllPosts";
-import { DUMMY_POSTS } from "../page";
+import { getAllPosts } from "@/lib/posts-util";
 
 const AllPostsPage: React.FC = () => {
-  return <AllPosts posts={DUMMY_POSTS} />;
+  const posts = getAllPosts();
+  return <AllPosts posts={posts} />;
 };
 
 export default AllPostsPage;
