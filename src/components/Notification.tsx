@@ -1,3 +1,4 @@
+import ReactDOM from "react-dom";
 import classes from "./Notification.module.css";
 
 export type Status = "success" | "error" | "pending";
@@ -26,11 +27,12 @@ function Notification(props: {
 
   const activeClasses = `${classes.notification} ${statusClasses}`;
 
-  return (
+  return ReactDOM.createPortal(
     <div className={activeClasses} onClick={props.onClick}>
       <h2>{title}</h2>
       <p>{message}</p>
-    </div>
+    </div>,
+    document.getElementById("notifications")!
   );
 }
 
